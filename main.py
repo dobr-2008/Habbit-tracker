@@ -12,6 +12,7 @@ from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from database import Base, engine, get_db
 import models
+import os
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -25,9 +26,11 @@ app = FastAPI(lifespan=lifespan)
 
 templates = Jinja2Templates(directory="templates")
 
+os.makedirs("static", exist_ok=True)
+os.makedirs("media", exist_ok=True)
+
 app.mount("/static", StaticFiles(directory="static"), name="static")
 app.mount("/media", StaticFiles(directory="media"), name="media")
-
 
 @app.get("/", include_in_schema=False, name="home")
 @app.get("/posts", include_in_schema=False, name="posts")
