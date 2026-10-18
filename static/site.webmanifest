@@ -1,0 +1,17 @@
+{
+    "name": "Habit Tracker",
+    "short_name": "Habit Tracker",
+    "description": "A tool to track your habits",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#527c9f",
+    "icons": [
+        {
+            "src": "/static/icons/icon.png",
+            "sizes": "180x180",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ]
+}
